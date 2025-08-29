@@ -63,7 +63,7 @@ projeto/
 
 ### Setup
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/AlexDevNavarro/desafio_Cypress_serverest.git
 cd projeto
 npm install
 ```
