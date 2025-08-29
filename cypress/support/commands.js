@@ -1,10 +1,8 @@
-// ***********************************************
 // Comandos customizados para reutilização nos testes
-// ***********************************************
 
 import { faker } from '@faker-js/faker'
 
-// Comando para gerar dados de usuário dinâmicos
+// Gerar dados de usuário para testes
 Cypress.Commands.add('generateUserData', () => {
   return {
     nome: faker.person.fullName(),
@@ -14,7 +12,7 @@ Cypress.Commands.add('generateUserData', () => {
   }
 })
 
-// Comando para gerar dados de produto dinâmicos
+// Gerar dados de produto para testes
 Cypress.Commands.add('generateProductData', () => {
   return {
     nome: faker.commerce.productName(),

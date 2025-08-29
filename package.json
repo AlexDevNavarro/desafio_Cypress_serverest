@@ -1,7 +1,7 @@
 {
-  "name": "cypress-serverest-automation",
+  "name": "serverest-tests",
   "version": "1.0.0",
-  "description": "Projeto de automação E2E e API usando Cypress para testar a aplicação Serverest",
+  "description": "Testes automatizados para aplicação Serverest usando Cypress",
   "main": "index.js",
   "scripts": {
     "test": "cypress run",
@@ -24,7 +24,7 @@
     "testing",
     "serverest"
   ],
-  "author": "Dev Team",
+  "author": "",
   "license": "MIT",
   "devDependencies": {
     "cypress": "^13.6.0",

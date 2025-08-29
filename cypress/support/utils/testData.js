@@ -1,4 +1,4 @@
-// Utilitários para criação e manipulação de dados de teste
+// Utilitários para dados de teste
 
 /**
  * Cria um email único baseado em timestamp
