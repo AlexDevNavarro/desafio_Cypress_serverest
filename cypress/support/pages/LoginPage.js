@@ -1,13 +1,13 @@
 class LoginPage {
   // Seletores da página de login
   elements = {
-    emailInput: () => cy.get('input[type="email"], input[name="email"], #email'),
-    passwordInput: () => cy.get('input[type="password"], input[name="password"], #password'),
-    loginButton: () => cy.contains('button', /entrar|login/i).or(cy.get('button[type="submit"]')),
-    registerLink: () => cy.contains('a', /cadastr|registr/i),
-    errorMessage: () => cy.get('.alert, .error, .message').filter(':visible'),
-    emailError: () => cy.get('.invalid-feedback, .error').filter(':visible'),
-    passwordError: () => cy.get('.invalid-feedback, .error').filter(':visible')
+    emailInput: () => cy.get('[data-testid="email"]'),
+    passwordInput: () => cy.get('[data-testid="senha"]'),
+    loginButton: () => cy.get('[data-testid="entrar"]'),
+    registerLink: () => cy.get('[data-testid="cadastrar"]'),
+    errorMessage: () => cy.get('.alert, .alert-danger, [role="alert"]').filter(':visible'),
+    emailError: () => cy.get('.invalid-feedback, .text-danger, .error').filter(':visible'),
+    passwordError: () => cy.get('.invalid-feedback, .text-danger, .error').filter(':visible')
   }
 
   // Ações da página

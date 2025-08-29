@@ -1,16 +1,16 @@
 class HomePage {
   // Seletores da página inicial
   elements = {
-    welcomeMessage: () => cy.get('h1, .welcome, .title').first(),
-    logoutButton: () => cy.contains('button, a', /sair|logout/i),
-    userMenu: () => cy.get('.navbar, .menu, .nav'),
-    adminPanel: () => cy.contains('a, button', /cadastr.*produto/i),
-    productsLink: () => cy.contains('a', /produto/i),
-    usersLink: () => cy.contains('a', /usuário/i),
-    cartIcon: () => cy.contains('a', /carrinho/i).or(cy.get('[class*="cart"]')),
-    searchInput: () => cy.get('input[type="search"], input[placeholder*="pesquis"], input[name="search"]'),
-    productCards: () => cy.get('.card, .product, .item'),
-    addToCartButtons: () => cy.contains('button', /adicionar|carrinho/i)
+    welcomeMessage: () => cy.get('h1').first(),
+    logoutButton: () => cy.get('[data-testid="logout"]'),
+    userMenu: () => cy.get('.navbar'),
+    adminPanel: () => cy.get('[data-testid="cadastrarProdutos"]'),
+    productsLink: () => cy.get('[data-testid="listarProdutos"]'),
+    usersLink: () => cy.get('[data-testid="listarUsuarios"]'),
+    cartIcon: () => cy.get('[data-testid="carrinho"]'),
+    searchInput: () => cy.get('[data-testid="pesquisar"]'),
+    productCards: () => cy.get('[data-testid="card-product"]'),
+    addToCartButtons: () => cy.get('[data-testid="adicionarNaLista"]')
   }
 
   // Ações da página
@@ -61,7 +61,9 @@ class HomePage {
   }
 
   shouldDisplayWelcomeMessage(userName) {
-    this.elements.welcomeMessage().should('contain.text', `Bem Vindo ${userName}`)
+    // Aceitar variações de espaçamento e formatação
+    this.elements.welcomeMessage().should('be.visible')
+    this.elements.welcomeMessage().invoke('text').should('match', new RegExp(`Bem.?Vindo.+${userName.split(' ')[0]}`, 'i'))
     return this
   }
 

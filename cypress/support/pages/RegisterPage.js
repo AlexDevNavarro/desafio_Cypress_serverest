@@ -1,17 +1,17 @@
 class RegisterPage {
   // Seletores da página de cadastro
   elements = {
-    nameInput: () => cy.get('input[name="nome"], input[placeholder*="nome"], #nome').first(),
-    emailInput: () => cy.get('input[type="email"], input[name="email"], #email').first(),
-    passwordInput: () => cy.get('input[type="password"], input[name="password"], #password').first(),
-    adminCheckbox: () => cy.get('input[type="checkbox"]').first(),
-    registerButton: () => cy.contains('button', /cadastr|registr/i).or(cy.get('button[type="submit"]')),
-    loginLink: () => cy.contains('a', /entrar|login/i),
-    successMessage: () => cy.get('.alert, .success, .message').filter(':visible'),
-    errorMessage: () => cy.get('.alert, .error, .message').filter(':visible'),
-    nameError: () => cy.get('.invalid-feedback, .error').filter(':visible'),
-    emailError: () => cy.get('.invalid-feedback, .error').filter(':visible'),
-    passwordError: () => cy.get('.invalid-feedback, .error').filter(':visible')
+    nameInput: () => cy.get('[data-testid="nome"]'),
+    emailInput: () => cy.get('[data-testid="email"]'),
+    passwordInput: () => cy.get('[data-testid="password"]'),
+    adminCheckbox: () => cy.get('[data-testid="checkbox"]'),
+    registerButton: () => cy.get('[data-testid="cadastrarUsuarios"]'),
+    loginLink: () => cy.get('[data-testid="entrar"]'),
+    successMessage: () => cy.get('.alert-success, .alert-dismissible, [role="alert"]').filter(':visible'),
+    errorMessage: () => cy.get('.alert, .alert-danger, [role="alert"]').filter(':visible'),
+    nameError: () => cy.get('.invalid-feedback, .text-danger, .error').filter(':visible'),
+    emailError: () => cy.get('.invalid-feedback, .text-danger, .error').filter(':visible'),
+    passwordError: () => cy.get('.invalid-feedback, .text-danger, .error').filter(':visible')
   }
 
   // Ações da página
