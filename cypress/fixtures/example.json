@@ -1,0 +1,31 @@
+{
+  "usuarios": {
+    "admin": {
+      "nome": "Usuario Administrador",
+      "email": "admin@exemplo.com",
+      "password": "admin123",
+      "administrador": "true"
+    },
+    "comum": {
+      "nome": "Usuario Comum",
+      "email": "comum@exemplo.com", 
+      "password": "comum123",
+      "administrador": "false"
+    }
+  },
+  "produtos": {
+    "exemplo": {
+      "nome": "Produto de Exemplo",
+      "preco": 100,
+      "descricao": "Descrição do produto de exemplo para testes",
+      "quantidade": 10
+    }
+  },
+  "mensagens": {
+    "sucessoCadastro": "Cadastro realizado com sucesso",
+    "sucessoLogin": "Login realizado com sucesso",
+    "erroEmailDuplicado": "Este email já está sendo usado",
+    "erroCredenciaisInvalidas": "Email e/ou senha inválidos",
+    "erroTokenInvalido": "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
+  }
+}

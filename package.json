@@ -1,0 +1,34 @@
+{
+  "name": "cypress-serverest-automation",
+  "version": "1.0.0",
+  "description": "Projeto de automação E2E e API usando Cypress para testar a aplicação Serverest",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run",
+    "test:open": "cypress open",
+    "test:frontend": "cypress run --spec \"cypress/e2e/frontend/**/*\"",
+    "test:api": "cypress run --spec \"cypress/e2e/api/**/*\"",
+    "test:headless": "cypress run --headless",
+    "test:chrome": "cypress run --browser chrome",
+    "test:firefox": "cypress run --browser firefox",
+    "cy:open": "cypress open",
+    "start:ci": "echo 'No server needed for external URLs'",
+    "lint": "echo 'Linting would go here'",
+    "validate": "npm run test:headless"
+  },
+  "keywords": [
+    "cypress",
+    "e2e",
+    "api",
+    "automation",
+    "testing",
+    "serverest"
+  ],
+  "author": "Dev Team",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^13.6.0",
+    "@faker-js/faker": "^8.3.1"
+  },
+  "dependencies": {}
+}
