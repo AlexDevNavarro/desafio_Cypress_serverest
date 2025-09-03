@@ -60,3 +60,4 @@ Thumbs.db
 # Build outputs
 dist/
 build/
+.claude

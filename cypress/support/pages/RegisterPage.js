@@ -1,14 +1,16 @@
+import { SELECTORS, URLS } from '../constants'
+
 class RegisterPage {
-  // Seletores da página de cadastro
+  // Seletores da página de cadastro usando constantes
   elements = {
-    nameInput: () => cy.get('[data-testid="nome"]'),
-    emailInput: () => cy.get('[data-testid="email"]'),
-    passwordInput: () => cy.get('[data-testid="password"]'),
-    adminCheckbox: () => cy.get('[data-testid="checkbox"]'),
-    registerButton: () => cy.get('[data-testid="cadastrarUsuarios"]'),
-    loginLink: () => cy.get('[data-testid="entrar"]'),
-    successMessage: () => cy.get('.alert-success, .alert-dismissible, [role="alert"]').filter(':visible'),
-    errorMessage: () => cy.get('.alert, .alert-danger, [role="alert"]').filter(':visible'),
+    nameInput: () => cy.get(SELECTORS.REGISTER_NAME, { timeout: 15000 }),
+    emailInput: () => cy.get(SELECTORS.REGISTER_EMAIL),
+    passwordInput: () => cy.get(SELECTORS.REGISTER_PASSWORD),
+    adminCheckbox: () => cy.get(SELECTORS.REGISTER_ADMIN),
+    registerButton: () => cy.get(SELECTORS.REGISTER_BUTTON),
+    loginLink: () => cy.get(SELECTORS.LOGIN_BUTTON),
+    successMessage: () => cy.get(SELECTORS.SUCCESS_ALERT).filter(':visible'),
+    errorMessage: () => cy.get(SELECTORS.ERROR_ALERT).filter(':visible'),
     nameError: () => cy.get('.invalid-feedback, .text-danger, .error').filter(':visible'),
     emailError: () => cy.get('.invalid-feedback, .text-danger, .error').filter(':visible'),
     passwordError: () => cy.get('.invalid-feedback, .text-danger, .error').filter(':visible')
@@ -16,7 +18,7 @@ class RegisterPage {
 
   // Ações da página
   visit() {
-    cy.visit('/cadastrarusuarios')
+    cy.visit(URLS.PATHS.REGISTER)
     return this
   }
 

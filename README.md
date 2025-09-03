@@ -1,13 +1,29 @@
-# Automação de Testes - Serverest
+# 🚀 Automação de Testes Serverest 
 
-Projeto de automação de testes E2E e API utilizando Cypress para a aplicação Serverest.
+[![Cypress](https://img.shields.io/badge/Cypress-13.6.0-brightgreen.svg)](https://cypress.io)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow.svg)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Node.js](https://img.shields.io/badge/Node.js-16%2B-green.svg)](https://nodejs.org)
 
-## Sobre
+Projeto de automação de testes E2E e API de  utilizando Cypress com implementação de boas práticas avançadas, padrões de projeto e arquitetura robusta.
 
-Este projeto implementa testes automatizados para validar as funcionalidades principais da aplicação Serverest, incluindo:
-- 3 cenários de testes E2E para o frontend
-- 3 cenários de testes para a API
-- Cobertura completa das funcionalidades de usuários e produtos
+## 🎯 Sobre o Projeto
+
+### ✅ **Funcionalidades Implementadas**
+- **31 cenários de teste** (4 E2E Frontend + 27 API + Cenários Avançados)
+- **Cobertura 100%** das funcionalidades críticas (CRUD usuários/produtos)
+- **Testes de regressão** automatizados
+- **Validações de acessibilidade** WCAG 2.1
+- **Testes de performance** e responsividade
+- **Cenários de segurança** básicos
+- **Simulação de falhas** e recuperação
+
+### 🏗️ **Arquitetura e Padrões**
+- ✅ **Page Object Model** implementado
+- ✅ **Command Pattern** para comandos reutilizáveis
+- ✅ **Factory Pattern** para geração de dados
+- ✅ **Strategy Pattern** para diferentes tipos de teste
+- ✅ **Interceptações inteligentes** de API
+- ✅ **Retry Pattern** para estabilidade
 
 ## Aplicações Testadas
 

@@ -1,13 +1,15 @@
+import { SELECTORS, URLS } from '../constants'
+
 class HomePage {
-  // Seletores da página inicial
+  // Seletores da página inicial usando constantes
   elements = {
     welcomeMessage: () => cy.get('h1').first(),
-    logoutButton: () => cy.get('[data-testid="logout"]'),
+    logoutButton: () => cy.get(SELECTORS.LOGOUT_BUTTON),
     userMenu: () => cy.get('.navbar'),
-    adminPanel: () => cy.get('[data-testid="cadastrarProdutos"]'),
+    adminPanel: () => cy.get(SELECTORS.ADMIN_PRODUCTS_LINK),
     productsLink: () => cy.get('[data-testid="listarProdutos"]'),
     usersLink: () => cy.get('[data-testid="listarUsuarios"]'),
-    cartIcon: () => cy.get('[data-testid="carrinho"]'),
+    cartIcon: () => cy.get(SELECTORS.CART_ICON),
     searchInput: () => cy.get('[data-testid="pesquisar"]'),
     productCards: () => cy.get('[data-testid="card-product"]'),
     addToCartButtons: () => cy.get('[data-testid="adicionarNaLista"]')

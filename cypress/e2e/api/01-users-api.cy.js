@@ -1,38 +1,39 @@
 /// <reference types="cypress" />
 
+import { HTTP_STATUS, API_MESSAGES, API_ENDPOINTS, URLS, TIMEOUTS } from '../../support/constants'
+import { generateUserData } from '../../support/utils/testData'
+
 describe('API - Gerenciamento de Usuários', () => {
   let userData
   let createdUserId
-  const apiUrl = Cypress.env('apiUrl')
+  const apiUrl = URLS.BASE_API
 
   beforeEach(() => {
-    // Gerar dados únicos para cada teste
-    cy.generateUserData().then((data) => {
-      userData = data
-    })
+    // Usar utilitário para gerar dados únicos
+    userData = generateUserData()
   })
 
   afterEach(() => {
-    // Limpar usuário criado após cada teste
+    // Limpar usuário criado após cada teste usando constantes
     if (createdUserId) {
       cy.request({
         method: 'DELETE',
-        url: `${apiUrl}/usuarios/${createdUserId}`,
+        url: `${apiUrl}${API_ENDPOINTS.USERS}/${createdUserId}`,
         failOnStatusCode: false
       })
     }
   })
 
   it('Deve criar um novo usuário via API', () => {
-    // Act
+    // Act - Usar constantes para endpoint e status
     cy.request({
       method: 'POST',
-      url: `${apiUrl}/usuarios`,
+      url: `${apiUrl}${API_ENDPOINTS.USERS}`,
       body: userData
     }).then((response) => {
-      // Assert
-      expect(response.status).to.eq(201)
-      expect(response.body).to.have.property('message', 'Cadastro realizado com sucesso')
+      // Assert - Usar constantes para status e mensagens
+      expect(response.status).to.eq(HTTP_STATUS.CREATED)
+      expect(response.body).to.have.property('message', API_MESSAGES.SUCCESS.REGISTER)
       expect(response.body).to.have.property('_id')
       
       // Salvar ID para limpeza
@@ -197,10 +198,10 @@ describe('API - Gerenciamento de Usuários', () => {
   })
 
   it('Não deve permitir criar usuário com email duplicado', () => {
-    // Arrange - Criar primeiro usuário
+    // Arrange - Criar primeiro usuário usando constantes
     cy.request({
       method: 'POST',
-      url: `${apiUrl}/usuarios`,
+      url: `${apiUrl}${API_ENDPOINTS.USERS}`,
       body: userData
     }).then((firstResponse) => {
       createdUserId = firstResponse.body._id
@@ -208,13 +209,13 @@ describe('API - Gerenciamento de Usuários', () => {
       // Act - Tentar criar segundo usuário com mesmo email
       cy.request({
         method: 'POST',
-        url: `${apiUrl}/usuarios`,
+        url: `${apiUrl}${API_ENDPOINTS.USERS}`,
         body: userData,
         failOnStatusCode: false
       }).then((response) => {
-        // Assert
-        expect(response.status).to.eq(400)
-        expect(response.body).to.have.property('message', 'Este email já está sendo usado')
+        // Assert - Usar constantes para status e mensagem
+        expect(response.status).to.eq(HTTP_STATUS.BAD_REQUEST)
+        expect(response.body).to.have.property('message', API_MESSAGES.ERROR.DUPLICATE_EMAIL)
       })
     })
   })
